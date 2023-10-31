@@ -1,4 +1,6 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 enum choice {
   rock ,
@@ -18,8 +20,10 @@ int main() {
   cout << "Welcome to Rock, Paper, Scissors"<<endl;
   cout<< "Type rock/paper/scissor or quit to exit"<<endl;
 
+  srand(time(0));
+  while(true){
   int AiChoice = (rand() % 3);
-   cin >> input;
+    cin >> input;
   switch(input){
     case rock:
     if (AiChoice == 1){
@@ -90,6 +94,12 @@ int main() {
     }
     break;
 
+    case quit: 
+    cout<< "You won "<<user<<" times."<<endl;
+    cout<< "AI won "<<AI<<" times."<<endl;
+    cout<< "You tied "<<tie<<" times."<<endl;
+    exit(0);
+    }
     
-}
+  }
 }
