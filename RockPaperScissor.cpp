@@ -2,30 +2,24 @@
 #include <cstdlib>
 #include <ctime>
 
-enum choice {
-  rock ,
-  paper ,
-  scissor ,
-  quit
-};
+using namespace std;
 
 int main() {
 
-  using namespace std;
   
   int user = 0;
   int AI = 0;
   int tie = 0;
   int input;
   cout << "Welcome to Rock, Paper, Scissors"<<endl;
-  cout<< "Type rock/paper/scissor or quit to exit"<<endl;
+  while(true){
+  cout<< endl<<"Type 0 for Rock"<<endl<<"Type 1 for paper"<<endl<<"Type 2 for scissor"<<endl<<"Type 3 to exit"<<endl<<endl;
 
   srand(time(0));
-  while(true){
   int AiChoice = (rand() % 3);
     cin >> input;
   switch(input){
-    case rock:
+    case 0:
     if (AiChoice == 1){
       cout<< "You chose rock"<<endl;
       cout<< "AI chose paper"<<endl;
@@ -48,7 +42,7 @@ int main() {
     }
     break;
 
-    case paper:
+    case 1:
     if (AiChoice == 1){
       cout<< "You chose paper"<<endl;
       cout<< "AI chose paper"<<endl;
@@ -71,7 +65,7 @@ int main() {
     }
     break;
 
-    case scissor:
+    case 2:
     if (AiChoice == 1){
       cout<< "You chose scissor"<<endl;
       cout<< "AI chose paper"<<endl;
@@ -94,11 +88,17 @@ int main() {
     }
     break;
 
-    case quit: 
+    case 3: 
+      cout<<endl<<"Total No. of games : " << user + AI + tie<<endl;
+      
     cout<< "You won "<<user<<" times."<<endl;
     cout<< "AI won "<<AI<<" times."<<endl;
     cout<< "You tied "<<tie<<" times."<<endl;
     exit(0);
+
+    default:
+    cout<<"Invalid Input"<<endl;
+    
     }
     
   }
